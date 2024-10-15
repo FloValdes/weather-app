@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple weather application built with React, utilizing Tanstack Query for data fetching and Tailwind CSS for styling.
 
-## Available Scripts
+## Table of Contents
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation and running](#installation-and-running)
+- [Design Decisions](#design-decisions)
+- [Technical Debt](#technical-debt)
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+- **React**: A JavaScript library for building user interfaces.
+- **Tanstack Query**: A powerful library for managing server state in React applications.
+- **Tailwind CSS**: A utility-first CSS framework for styling.
+- **OpenWeatherMap API**: For fetching weather data.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+Before you begin, ensure you have the following installed:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v20 was used)
+- npm (Node package manager)
 
-### `npm run build`
+### Installation and running
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/FloValdes/weather-app.git
+   cd weather-app
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install the dependecies:
+    ```bash
+    npm install
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. To run the aplication:
+    ```bash
+    npm start
+    ```
 
-### `npm run eject`
+    This will start the application on http://localhost:3000. Open it in your browser to view the app.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. To run the tests:
+    ```bash
+    npm test
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Design Decisions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Component Structure: The application is divided into components for better organization and maintainability. The App component manages the overall state and routing, while WeatherInfo handles displaying weather details.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Data Fetching: Tanstack Query is used to handle data fetching, caching, and synchronization with the server, providing a seamless user experience.
 
-## Learn More
+- Responsive Design: The application is designed to be responsive, with a layout that adapts to both desktop and mobile views.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technical Debt
+Due to time constrains, I had to leave some technical debt:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Environment Variables: The API token should be stored in an environment variable for security reasons. Currently, it's hardcoded and needs to be refactored to use process.env.
 
-### Code Splitting
+- Error Handling: The error handling in the application could be improved to provide more user-friendly messages or fallback content when the API fails to respond.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Unit Tests: While there are tests for the App component, tests for the WeatherInfo component are missing.
